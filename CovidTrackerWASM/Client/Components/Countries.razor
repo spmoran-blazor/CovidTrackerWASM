@@ -1,0 +1,49 @@
+﻿@inherits CovidTrackerWASM.Client.Components.CountriesModel
+@using CovidTrackerWASM.Shared.Models
+@using Blazorise.Components
+
+@if (@_countryData == null)
+{
+    <img class="mx-auto d-block" style="opacity: 0.75;" src="img/loading.gif" />
+}
+else
+{
+    @if (@_countryData != null)
+    {
+        <div class="container">
+            <div class="card">
+                <img class="card-img-top img-fluid" src="@_currentFlag">
+
+                <select class="form-control" @onchange="SelectedValueChanged">
+                        @foreach (var i in _countryDropdownData)
+                        {
+                            <option value="@i">@i</option>
+                        }
+                    </select>
+            </div>
+        </div>
+    }
+
+}
+@*<ul class="nav nav-tabs">
+        <li class="nav-item">
+            <button class="@_class" @onclick="@(e => SetComponent(e, (int)Enums.ComponentType.All))">All Data</button>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+    </ul>*@
+
+@*<ul class="list-group list-group-flush">
+        <li class="list-group-item">Cases: @String.Format("{0:n0}", allData.Cases)</li>
+        <li class="list-group-item">Deaths: @String.Format("{0:n0}", allData.Deaths)</li>
+        <li class="list-group-item">Recovered: @String.Format("{0:n0}", allData.Recovered)</li>
+        <li class="list-group-item">Active: @String.Format("{0:n0}", allData.Active)</li>
+        <li class="list-group-item">Updated : @_convertedDate</li>
+    </ul>*@

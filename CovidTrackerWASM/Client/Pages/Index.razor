@@ -1,0 +1,34 @@
+﻿@page "/"
+@inherits CovidTrackerWASM.Client.Pages.IndexModel
+@using CovidTrackerWASM.Client.Components
+@using CovidTrackerWASM.Shared.Common
+
+    <Bar Breakpoint="Breakpoint.Desktop" Background="Background.Light" Theme="Theme.Light">
+        <BarBrand>
+            Covid-19 Tracker
+        </BarBrand>
+    </Bar>
+    <div class="text-center p-2 row">
+        <div class="col-12 pt-2 pb-2">
+            <Button Class="p-2" @ref="_button0" Color="Color.Secondary" IsOutline="true" IsActive="((_isActive == 0) ? true : false)" Clicked="@(() => SetComponent((int)Enums.ComponentType.All))">Global</Button>
+            <Button Class="p-2" @ref="_button1" Color="Color.Secondary" IsOutline="true" IsActive="((_isActive == 1) ? true : false)" Clicked="@(() => SetComponent((int)Enums.ComponentType.Countries))">Country</Button>
+            <Button Class="p-2" @ref="_button2" Color="Color.Secondary" IsOutline="true" IsActive="((_isActive == 2) ? true : false)" Clicked="@(() => SetComponent((int)Enums.ComponentType.States))">States</Button>
+        </div>
+    </div>
+
+    @switch (_currentComponent)
+    {
+        case Enums.ComponentType.All:
+            <All />
+            break;
+
+        case Enums.ComponentType.Countries:
+            <Countries />
+            break;
+        case Enums.ComponentType.States:
+            // code block
+            break;
+        default:
+            <All />
+            break;
+    }
