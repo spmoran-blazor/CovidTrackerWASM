@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CovidTrackerWASM.Shared.Common
+﻿namespace CovidTrackerWASM.Shared.Common
 {
     public class Enums
     {

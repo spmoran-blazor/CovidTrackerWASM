@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CovidTrackerWASM.Client.Components
 {
-    public class CountriesModel : OwningComponentBase
+    public class StatesModel : OwningComponentBase
     {
         [Inject]
         public HttpClient Http { get; set; }
@@ -17,31 +17,27 @@ namespace CovidTrackerWASM.Client.Components
         [Inject]
         public IConfiguration Configuration { get; set; }
 
-        protected List<CountryData> _countryData;
-        protected List<string> _countryDropdownData = new List<string>();
-        protected CountryData _currentItem;
+        protected List<StateData> _stateData;
+        protected List<string> _stateDropdownData = new List<string>();
+        protected StateData _currentItem;
         protected string _selectedListValue;
         protected string _baseAddress;
-        protected string _convertedDate;
-        protected string _currentFlag;
 
         protected override async Task OnInitializedAsync()
         {
             _baseAddress = Configuration["BaseAddress"];
-            _countryData = await Http.GetJsonAsync<List<CountryData>>(_baseAddress + Constants.ALL_COUNTRIES);
+            _stateData = await Http.GetJsonAsync<List<StateData>>(_baseAddress + Constants.ALL_STATES);
 
-            if (_countryData.Count > 0)
+            if (_stateData.Count > 0)
             {
-                foreach (var i in _countryData)
+                foreach (var i in _stateData)
                 {
-                    _countryDropdownData.Add(i.Country);
+                    _stateDropdownData.Add(i.State);
                 }
             }
 
-            _selectedListValue = _countryDropdownData.FirstOrDefault();
+            _selectedListValue = _stateDropdownData.FirstOrDefault();
             SetCurrentItem();
-            SetCountryFlag();
-
             StateHasChanged();
         }
 
@@ -49,19 +45,12 @@ namespace CovidTrackerWASM.Client.Components
         {
             _selectedListValue = selectEvent.Value.ToString();
             SetCurrentItem();
-            SetCountryFlag();
             StateHasChanged();
         }
 
         protected void SetCurrentItem()
         {
-            _currentItem = _countryData.FirstOrDefault(x => x.Country == _selectedListValue);
-            _convertedDate = _convertedDate = Helper.TransformEpochDate(_currentItem.Updated);
-        }
-
-        protected void SetCountryFlag()
-        {
-            _currentFlag = _currentItem.CountryInfo.Flag;
+            _currentItem = _stateData.FirstOrDefault(x => x.State == _selectedListValue);
         }
     }
 }

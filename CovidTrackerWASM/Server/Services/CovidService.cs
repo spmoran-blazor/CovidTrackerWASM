@@ -1,18 +1,16 @@
 ﻿using CovidTrackerWASM.Shared.Common;
 using CovidTrackerWASM.Shared.Models;
 using Microsoft.AspNetCore.Components;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CovidTrackerWASM.Server.Services
 {
     public class CovidService
     {
-        System.Net.Http.HttpClient _http;
-        IConfiguration _configuration;
+        private System.Net.Http.HttpClient _http;
+        private IConfiguration _configuration;
 
         public CovidService(System.Net.Http.HttpClient http, IConfiguration configuration)
         {
@@ -22,15 +20,17 @@ namespace CovidTrackerWASM.Server.Services
 
         public async Task<AllData> GetAll()
         {
-            string foo = _configuration["BaseAddress"] + Constants.ALL;
             return await _http.GetJsonAsync<AllData>(_configuration["BaseAddress"] + Constants.ALL);
         }
 
         public async Task<List<CountryData>> GetAllCountries()
         {
-            string foo = _configuration["BaseAddress"] + Constants.ALL_COUNTRIES;
             return await _http.GetJsonAsync<List<CountryData>>(_configuration["BaseAddress"] + Constants.ALL_COUNTRIES);
         }
-    }
 
+        public async Task<List<StateData>> GetAllStates()
+        {
+            return await _http.GetJsonAsync<List<StateData>>(_configuration["BaseAddress"] + Constants.ALL_STATES);
+        }
+    }
 }
