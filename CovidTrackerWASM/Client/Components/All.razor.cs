@@ -2,7 +2,6 @@
 using CovidTrackerWASM.Shared.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Configuration;
-using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -25,9 +24,6 @@ namespace CovidTrackerWASM.Client.Components
             _baseAddress = Configuration["BaseAddress"];
             allData = await Http.GetJsonAsync<AllData>(_baseAddress + Constants.ALL);
             _convertedDate = Helper.TransformEpochDate(allData.Updated);
-            //Int64 val = Convert.ToInt64(allData.Updated);
-            //var tmpDate = Helper.ConvertFromEpochMilliseconds(val);
-            //_convertedDate = tmpDate.ToLongDateString() + " - " + tmpDate.ToShortTimeString() + " UTC";
             StateHasChanged();
         }
     }

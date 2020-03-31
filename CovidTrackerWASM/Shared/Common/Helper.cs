@@ -11,7 +11,8 @@ namespace CovidTrackerWASM.Shared.Common
             return dateTime;
         }
 
-        public static string TransformEpochDate(Int64 epoch) {
+        public static string TransformEpochDate(Int64 epoch)
+        {
             Int64 val = Convert.ToInt64(epoch);
             var tmpDate = ConvertFromEpochMilliseconds(val);
             string _convertedDate = tmpDate.ToLongDateString() + " - " + tmpDate.ToShortTimeString() + " UTC";

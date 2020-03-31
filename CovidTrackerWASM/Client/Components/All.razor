@@ -3,7 +3,7 @@
 
 @if (@allData == null)
 {
-    <img class="mx-auto d-block" style="opacity: 0.75;" src="img/loading.gif" />
+    <img class="mx-auto d-block pt-3 pl-2 img-fluid" src="@Constants.LOADING" />
 }
 else
 {
@@ -11,7 +11,7 @@ else
     {
         <div class="container pt-3">
             <div class="card">
-                <img class="card-img-top img-fluid" src=@Constants.GLOBAL_MAP GLOBAL_MAP alt="CDC World Map">
+                <img class="card-img-top img-fluid" src="@Constants.GLOBAL_MAP" />
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Cases: @String.Format("{0:n0}", allData.Cases)</li>
                     <li class="list-group-item">Deaths: @String.Format("{0:n0}", allData.Deaths)</li>

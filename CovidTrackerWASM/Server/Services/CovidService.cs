@@ -20,14 +20,17 @@ namespace CovidTrackerWASM.Server.Services
 
         public async Task<AllData> GetAll()
         {
-            string foo = _configuration["BaseAddress"] + Constants.ALL;
             return await _http.GetJsonAsync<AllData>(_configuration["BaseAddress"] + Constants.ALL);
         }
 
         public async Task<List<CountryData>> GetAllCountries()
         {
-            string foo = _configuration["BaseAddress"] + Constants.ALL_COUNTRIES;
             return await _http.GetJsonAsync<List<CountryData>>(_configuration["BaseAddress"] + Constants.ALL_COUNTRIES);
+        }
+
+        public async Task<List<StateData>> GetAllStates()
+        {
+            return await _http.GetJsonAsync<List<StateData>>(_configuration["BaseAddress"] + Constants.ALL_STATES);
         }
     }
 }

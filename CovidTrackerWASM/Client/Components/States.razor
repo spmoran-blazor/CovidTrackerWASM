@@ -1,29 +1,29 @@
-﻿@inherits CovidTrackerWASM.Client.Components.CountriesModel
+﻿@inherits CovidTrackerWASM.Client.Components.StatesModel
 @using CovidTrackerWASM.Shared.Models
 @using CovidTrackerWASM.Shared.Common
 
-@if (@_countryData == null)
+@if (@_stateData == null)
 {
     <img class="mx-auto d-block pt-3 pl-2 img-fluid" src="img/loading.gif" />
 }
 else
 {
-    @if (@_countryData != null)
+    @if (@_stateData != null)
     {
         <div class="pt-3">
             <div class="container">
                 <div class="row text-center">
-                    <div class="col-2"></div>
-                    <div class="col-8">
-                        <img class="card-img-top img-fluid w-75" src="@_currentFlag">
+                    <div class="col-1"></div>
+                    <div class="col-10">
+                        <img class="card-img-top img-fluid" src="@Constants.USA_MAP">
                     </div>
-                    <div class="col-2"></div>
+                    <div class="col-1"></div>
                 </div>
                 <div class="row text-center pt-2">
                     <div class="col-3"></div>
                     <div class="col-6">
                         <select class="form-control align-self-center" @onchange="SelectedValueChanged">
-                            @foreach (var i in _countryDropdownData)
+                            @foreach (var i in _stateDropdownData)
                             {
                                 <option value="@i">@i</option>
                             }
@@ -38,19 +38,15 @@ else
             <div class="container pt-3">
                 <div class="card">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Country: <b>@String.Format("{0:n0}", _currentItem.Country)</b></li>
+                        <li class="list-group-item">State: <b>@String.Format("{0:n0}", _currentItem.State)</b></li>
                         <li class="list-group-item">Cases: @String.Format("{0:n0}", _currentItem.Cases)</li>
                         <li class="list-group-item">Cases: @String.Format("{0:n0}", _currentItem.TodayCases)</li>
                         <li class="list-group-item">Deaths: @String.Format("{0:n0}", _currentItem.Deaths)</li>
                         <li class="list-group-item">Deaths: @String.Format("{0:n0}", _currentItem.TodayDeaths)</li>
-                        <li class="list-group-item">Recovered: @String.Format("{0:n0}", _currentItem.Recovered)</li>
                         <li class="list-group-item">Active: @String.Format("{0:n0}", _currentItem.Active)</li>
-                        <li class="list-group-item">Active: @String.Format("{0:n0}", _currentItem.Critical)</li>
-                        <li class="list-group-item">Active: @String.Format("{0:n0}", _currentItem.CasesPerOneMillion)</li>
-                        <li class="list-group-item">Active: @String.Format("{0:n0}", _currentItem.DeathsPerOneMillion)</li>
-                        <li class="list-group-item">Updated : @_convertedDate</li>
                     </ul>
                 </div>
+                <div class="col-2"></div>
             </div>
         </div>
     }

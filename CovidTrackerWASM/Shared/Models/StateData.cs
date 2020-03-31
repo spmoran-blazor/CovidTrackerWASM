@@ -1,6 +1,6 @@
 ﻿namespace CovidTrackerWASM.Shared.Models
 {
-    public class States
+    public class StateData
     {
         public string State { get; set; }
         public int Cases { get; set; }

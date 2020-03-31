@@ -5,8 +5,6 @@ using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace CovidTrackerWASM.Server.Controllers
 {
     [Route("api/[controller]")]
@@ -40,29 +38,12 @@ namespace CovidTrackerWASM.Server.Controllers
             return foo;
         }
 
-        // GET api/<CovidController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [Route("states")]
+        [HttpGet]
+        public async Task<List<StateData>> GetAllStates()
         {
-            return "value";
-        }
-
-        // POST api/<CovidController>
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/<CovidController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/<CovidController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            var foo = await _covidService.GetAllStates();
+            return foo;
         }
     }
 }
