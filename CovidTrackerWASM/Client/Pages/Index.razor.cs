@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
-using CovidTrackerWASM.Shared.Common;
-using System.Threading.Tasks;
+﻿using CovidTrackerWASM.Shared.Common;
+using Microsoft.AspNetCore.Components;
 using static CovidTrackerWASM.Shared.Common.Enums;
-using Microsoft.AspNetCore.Components.Web;
 
 namespace CovidTrackerWASM.Client.Pages
 {

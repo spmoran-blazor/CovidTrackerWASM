@@ -6,6 +6,7 @@ namespace CovidTrackerWASM.Shared.Models
     {
         [JsonIgnore]
         public int? Id { get; set; }
+
         public double Lat { get; set; }
         public double Long { get; set; }
         public string Flag { get; set; }
@@ -26,6 +27,7 @@ namespace CovidTrackerWASM.Shared.Models
         public long? Critical { get; set; }
         public double? CasesPerOneMillion { get; set; }
         public double? DeathsPerOneMillion { get; set; }
+        public long Updated { get; set; }
     }
 
     public class CountryDropdownItem

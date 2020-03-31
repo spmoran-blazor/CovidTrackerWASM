@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace CovidTrackerWASM.Shared.Models
+﻿namespace CovidTrackerWASM.Shared.Models
 {
     public class AllData
     {

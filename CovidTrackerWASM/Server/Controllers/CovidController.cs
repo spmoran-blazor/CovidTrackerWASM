@@ -9,14 +9,13 @@ using System.Threading.Tasks;
 
 namespace CovidTrackerWASM.Server.Controllers
 {
-
     [Route("api/[controller]")]
     [ApiController]
     public class CovidController : ControllerBase
     {
-        IConfiguration _configuration;
+        private IConfiguration _configuration;
         private string _baseUrl;
-        CovidService _covidService;
+        private CovidService _covidService;
 
         public CovidController(IConfiguration configuration, CovidService covidService)
         {
@@ -29,8 +28,7 @@ namespace CovidTrackerWASM.Server.Controllers
         [HttpGet]
         public async Task<AllData> AllData()
         {
-
-            var foo =  await _covidService.GetAll();
+            var foo = await _covidService.GetAll();
             return foo;
         }
 

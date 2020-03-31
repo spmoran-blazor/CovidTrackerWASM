@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CovidTrackerWASM.Shared.Common
 {
@@ -11,6 +9,13 @@ namespace CovidTrackerWASM.Shared.Common
             DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeMilliseconds(epoch);
             DateTime dateTime = dateTimeOffset.UtcDateTime;
             return dateTime;
+        }
+
+        public static string TransformEpochDate(Int64 epoch) {
+            Int64 val = Convert.ToInt64(epoch);
+            var tmpDate = ConvertFromEpochMilliseconds(val);
+            string _convertedDate = tmpDate.ToLongDateString() + " - " + tmpDate.ToShortTimeString() + " UTC";
+            return _convertedDate;
         }
     }
 }

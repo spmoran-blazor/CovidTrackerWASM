@@ -1,6 +1,6 @@
 ﻿@inherits CovidTrackerWASM.Client.Components.CountriesModel
 @using CovidTrackerWASM.Shared.Models
-@using Blazorise.Components
+@using CovidTrackerWASM.Shared.Common
 
 @if (@_countryData == null)
 {
@@ -10,40 +10,45 @@ else
 {
     @if (@_countryData != null)
     {
-        <div class="container">
-            <div class="card">
-                <img class="card-img-top img-fluid" src="@_currentFlag">
+        <div class="pt-3 pb-3">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-2"></div>
+                    <div class="col-8">                            <img class="card-img-top img-fluid w-75" src="@_currentFlag"></div>
+                    <div class="col-2"></div>
+                </div>
+                <div class="row text-center pt-2">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                        <select class="form-control align-self-center" @onchange="SelectedValueChanged">
+                            @foreach (var i in _countryDropdownData)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+            </div>
+        </div>
 
-                <select class="form-control" @onchange="SelectedValueChanged">
-                        @foreach (var i in _countryDropdownData)
-                        {
-                            <option value="@i">@i</option>
-                        }
-                    </select>
+        <div class="pt-3 pb-3">
+            <div class="container pt-3">
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Cases: @String.Format("{0:n0}", _currentItem.Cases)</li>
+                        <li class="list-group-item">Cases: @String.Format("{0:n0}", _currentItem.TodayCases)</li>
+                        <li class="list-group-item">Deaths: @String.Format("{0:n0}", _currentItem.Deaths)</li>
+                        <li class="list-group-item">Deaths: @String.Format("{0:n0}", _currentItem.TodayDeaths)</li>
+                        <li class="list-group-item">Recovered: @String.Format("{0:n0}", _currentItem.Recovered)</li>
+                        <li class="list-group-item">Active: @String.Format("{0:n0}", _currentItem.Active)</li>
+                        <li class="list-group-item">Active: @String.Format("{0:n0}", _currentItem.Critical)</li>
+                        <li class="list-group-item">Active: @String.Format("{0:n0}", _currentItem.CasesPerOneMillion)</li>
+                        <li class="list-group-item">Active: @String.Format("{0:n0}", _currentItem.DeathsPerOneMillion)</li>
+                        <li class="list-group-item">Updated : @_convertedDate</li>
+                    </ul>
+                </div>
             </div>
         </div>
     }
-
 }
-@*<ul class="nav nav-tabs">
-        <li class="nav-item">
-            <button class="@_class" @onclick="@(e => SetComponent(e, (int)Enums.ComponentType.All))">All Data</button>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-    </ul>*@
-
-@*<ul class="list-group list-group-flush">
-        <li class="list-group-item">Cases: @String.Format("{0:n0}", allData.Cases)</li>
-        <li class="list-group-item">Deaths: @String.Format("{0:n0}", allData.Deaths)</li>
-        <li class="list-group-item">Recovered: @String.Format("{0:n0}", allData.Recovered)</li>
-        <li class="list-group-item">Active: @String.Format("{0:n0}", allData.Active)</li>
-        <li class="list-group-item">Updated : @_convertedDate</li>
-    </ul>*@
