@@ -22,7 +22,8 @@ namespace CovidTrackerWASM.Client.Components
         protected override async Task OnInitializedAsync()
         {
             _baseAddress = Configuration["BaseAddress"];
-            allData = await Http.GetJsonAsync<AllData>(_baseAddress + Constants.ALL);
+            //allData = await Http.GetJsonAsync<AllData>(_baseAddress + Constants.ALL);
+            allData = await Http.GetJsonAsync<AllData>(Constants.BASE_ADDRESS + Constants.ALL);
             _convertedDate = Helper.TransformEpochDate(allData.Updated);
             StateHasChanged();
         }

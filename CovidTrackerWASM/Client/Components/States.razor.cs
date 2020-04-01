@@ -26,7 +26,7 @@ namespace CovidTrackerWASM.Client.Components
         protected override async Task OnInitializedAsync()
         {
             _baseAddress = Configuration["BaseAddress"];
-            _stateData = await Http.GetJsonAsync<List<StateData>>(_baseAddress + Constants.ALL_STATES);
+            _stateData = await Http.GetJsonAsync<List<StateData>>(Constants.BASE_ADDRESS + Constants.ALL_STATES);
 
             if (_stateData.Count > 0)
             {
