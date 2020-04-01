@@ -40,14 +40,14 @@ else
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Country: <b>@String.Format("{0:n0}", _currentItem.Country)</b></li>
                         <li class="list-group-item">Cases: @String.Format("{0:n0}", _currentItem.Cases)</li>
-                        <li class="list-group-item">Cases: @String.Format("{0:n0}", _currentItem.TodayCases)</li>
+                        <li class="list-group-item">Cases Today: @String.Format("{0:n0}", _currentItem.TodayCases)</li>
                         <li class="list-group-item">Deaths: @String.Format("{0:n0}", _currentItem.Deaths)</li>
-                        <li class="list-group-item">Deaths: @String.Format("{0:n0}", _currentItem.TodayDeaths)</li>
+                        <li class="list-group-item">Deaths Today: @String.Format("{0:n0}", _currentItem.TodayDeaths)</li>
                         <li class="list-group-item">Recovered: @String.Format("{0:n0}", _currentItem.Recovered)</li>
                         <li class="list-group-item">Active: @String.Format("{0:n0}", _currentItem.Active)</li>
-                        <li class="list-group-item">Active: @String.Format("{0:n0}", _currentItem.Critical)</li>
-                        <li class="list-group-item">Active: @String.Format("{0:n0}", _currentItem.CasesPerOneMillion)</li>
-                        <li class="list-group-item">Active: @String.Format("{0:n0}", _currentItem.DeathsPerOneMillion)</li>
+                        <li class="list-group-item">Critical: @String.Format("{0:n0}", _currentItem.Critical)</li>
+                        <li class="list-group-item">Cases Per 1 Million: @String.Format("{0:n0}", _currentItem.CasesPerOneMillion)</li>
+                        <li class="list-group-item">Deaths Per 1 Million: @String.Format("{0:n0}", _currentItem.DeathsPerOneMillion)</li>
                         <li class="list-group-item">Updated : @_convertedDate</li>
                     </ul>
                 </div>
