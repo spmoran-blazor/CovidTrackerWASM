@@ -6,3 +6,5 @@ This is a Single Page Application that uses logic to determine which of (3) comp
 Feel free to use this as you see fit, but as a developer and a teacher, I hope you can find value in this project to bolster your own skills.
 
 Note this project makes use of Blazorize.Bootstrap for a few things.
+
+A working demo is at https://covidwasm.azurewebsites.net/
