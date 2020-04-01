@@ -9,5 +9,7 @@
         public const string GLOBAL_MAP = "/img/world-political-map-robinson-large.jpg";
         public const string USA_MAP = "/img/usa-simple-map-large.jpg";
         public const string LOADING = "/img/loading.gif";
+
+        public const string BASE_ADDRESS = "api/covid/";
     }
 }
