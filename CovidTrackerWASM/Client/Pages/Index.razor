@@ -3,13 +3,14 @@
 @using CovidTrackerWASM.Client.Components
 @using CovidTrackerWASM.Shared.Common
 
-    <div class="w-75 container">
+    <div class="container">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <Bar Breakpoint="Breakpoint.Desktop" Background="Background.Light" Theme="Theme.Light">
                         <BarBrand>
-                            Covid-19 Tracker
+                            <h3>Covid-19 Tracker</h3>
+                            <div>A Blazor WASM Demo</div>
                         </BarBrand>
                     </Bar>
                 </div>
@@ -49,6 +50,6 @@
                 break;
         }
         <footer class="pt-5 pb-3">
-            <a href="https://github.com/spmoran-blazor/CovidTrackerWASM" target="_blank">Get the source code on GitHub</a><span>&nbsp;<i class="fa fa-github" style="font-size:24px"></i></span>
+            <a href="https://github.com/spmoran-blazor/CovidTrackerWASM" target="_blank">Source code on GitHub</a><span>&nbsp;<i class="fa fa-github" style="font-size:24px"></i></span>
         </footer>
     </div>
